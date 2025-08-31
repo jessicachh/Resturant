@@ -328,3 +328,21 @@
   border: 3px solid #f76d37;
   width: 100%;
 }
+
+.auth_btn {
+  color: #ecf0f1;
+  font-size: 17px;
+  background-color: #f76d37;
+  border: 1px solid #f76d37;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+  box-shadow: 0px 6px 0px #f76d37;
+  transition: all 0.1s;
+}
+
+.auth_btn:active {
+  box-shadow: 0px 2px 0px #d35400;
+  position: relative;
+  top: 2px;
+}

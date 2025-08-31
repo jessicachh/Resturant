@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,7 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 External_Apps=[
-    'core'
+    'core',
+    'accounts',
+    'allauth', 
+    'allauth.account', 
+    'allauth.socialaccount', 
+    'social_django' 
 ]
 INSTALLED_APPS.extend(External_Apps)
 
@@ -52,7 +58,25 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware', 
+    'allauth.account.middleware.AccountMiddleware'
 ]
+
+OGIN_URL="login" 
+LOGIN_REDIRECT_URL ="index" 
+LOGOUT_URL="logout" 
+LOGOUT_REDIRECT_URL ="login" 
+AUTHENTICATION_BACKENDS = [ 
+'social_core.backends.google.GoogleOAuth2', 
+'social_core.backends.github.GithubOAuth2',
+'django.contrib.auth.backends.ModelBackend', 
+] 
+SOCIAL_AUTH_URL_NAMESPACE = 'social' 
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '90301264774-3lkt8gbkgjaorofedq4pclfvbg5a9l2v.apps.googleusercontent.com' 
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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' 
+
+SOCIAL_AUTH_GITHUB_KEY = 'Ov23liqIYk0DQ7V8xWqP'  # Correct Client ID 
+SOCIAL_AUTH_GITHUB_SECRET = '8c458df0c596c896b199f9aa56853815e85aad0d'
 
 ROOT_URLCONF = 'Resturant.urls'
 
@@ -127,3 +151,67 @@ MEDIA_URL='/media/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#email setup
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'jsscraut@gmail.com'
+EMAIL_HOST_PASSWORD = 'deyh nobt djac luyk'
+
+# django admin pannel
+JAZZMIN_SETTINGS = {
+    "welcome_sign": "Welcome to Bite Admin",
+    "login_logo": "images/Bite.png",
+    'custom_css': "css/admin.css",
+    "site_logo": "images/Bite.png",
+    "copyright": "jessica Raut",
+    "search_model": ["core.momo", "accounts.profile"],
+     "topmenu_links": [
+
+        # Url that gets reversed (Permissions can be added)
+        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+
+        # external url that opens in a new window (Permissions can be added)
+        {"name": "Jessica", "url": "https://jessica.com", "new_window": True},
+
+        # model admin to link to (Permissions checked against model)
+        {"model": "auth.User"},
+
+        # App with dropdown menu to all its models pages (Permissions checked against models)
+        {"app": "core"},
+    ],
+     "show_ui_builder": True,
+}
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "brand_colour": "navbar-lightblue",
+    "accent": "accent-lightblue",
+    "navbar": "navbar-lightblue navbar-dark",
+    "no_navbar_border": False,
+    "navbar_fixed": False,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": True,
+    "sidebar": "sidebar-dark-primary",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": False,
+    "theme": "yeti",
+    "dark_mode_theme": "darkly",
+    "button_classes": {
+        "primary": "btn-outline-primary",
+        "secondary": "btn-outline-secondary",
+        "info": "btn-info",
+        "warning": "btn-warning",
+        "danger": "btn-danger",
+        "success": "btn-success"
+    }
+}
