@@ -2,6 +2,9 @@
   padding: 0 10px;
   font-size: 25px;
 }
+html{
+  scroll-behavior: smooth;
+}
 
 .menu-title {
   color: white;
@@ -262,7 +265,7 @@
   height: 40px;
   color: #fff;
   border-radius: 5px;
-  padding: 10px 25px;
+  /* padding: 10px 25px; */
   font-family: 'Lato', sans-serif;
   font-weight: 500;
   background: transparent;
@@ -336,11 +339,17 @@
   border: 1px solid #f76d37;
   border-radius: 5px;
   cursor: pointer;
-  padding: 10px;
-  box-shadow: 0px 6px 0px #f76d37;
+  /* padding: 10px; */
+  width: 120px;
+  height: 45px;
   transition: all 0.1s;
+  margin-right: 15px;
 }
-
+.auth_btn:hover{
+  background-color: white;
+  color: black;
+  border: 1px solid white;
+}
 .auth_btn:active {
   box-shadow: 0px 2px 0px #d35400;
   position: relative;
