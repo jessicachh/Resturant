@@ -8,12 +8,15 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
-    category=Category.objects.all()
-    cateid=request.GET.get('category')#1
+    category = Category.objects.all()
+    cateid = request.GET.get('category')  # Get selected category
+
     if cateid:
-        momo=Momo.objects.filter(category=cateid)
+        momo = Momo.objects.filter(category=cateid)
+        selected_category = int(cateid)  # Pass to template
     else:
-        momo=Momo.objects.all()
+        momo = Momo.objects.all()
+        selected_category = None  # No category selected
     if request.method =='POST':
         name=request.POST['name']
         email=request.POST['email']
@@ -33,7 +36,8 @@ def index(request):
     context={
         'date':datetime.now(),
         'category':category,
-        'momo':momo
+        'momo':momo,
+         'selected_category': selected_category 
     }
      
     return render(request,'core/index.html',context)
