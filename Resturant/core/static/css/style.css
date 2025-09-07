@@ -269,6 +269,8 @@ About Section
 .about_section {
     width: 100%;
     padding: 80px 0;
+    padding-top: 150px;
+    
 }
 
 .about_taital {
@@ -277,7 +279,7 @@ About Section
     margin-bottom: 20px;
     color: #f76d37;
     text-transform: uppercase;
-    text-decoration: underline;
+   
 }
 
 .about_text {
@@ -302,6 +304,9 @@ About Section
 .read_bt a:hover {
     background: #d45a2a;
     border-color: black;
+}
+.about_img1 img {
+    height: 745px;
 }
 
 .about_img img, .about_img1 img {
@@ -335,7 +340,6 @@ Services Section
     text-align: center;
     color: #f76d37;
     text-transform: uppercase;
-    text-decoration: underline;
 }
 
 .services_text {
@@ -532,93 +536,58 @@ Menu/Gallery Section
 Testimonial Section 
 ---------------------------------------------------------------------*/
 .client_section {
-    width: 100%;
-    padding: 80px 0;
-    background-color: #252525;
+  width: 100%;
+  padding: 80px 0;
+  background-color: #252525;
 }
 
 .client_taital {
-    font-size: 36px;
+   font-size: 36px;
     font-weight: 700;
-    margin-bottom: 15px;
     text-align: center;
     color: #f76d37;
-    text-decoration: underline;
+    text-transform: uppercase;
 }
 
 .client_text {
-    font-size: 16px;
-    text-align: center;
-    margin-bottom: 30px;
-    color: white;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 40px;
+  color: white;
+  opacity: 0.9;
 }
 
-.testimonial_section_2 {
-    width: 100%;
-    padding: 0 40px 30px;
-    position: relative;
-    color: white;
+/* Testimonial card */
+.testimonial-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 30px;
+  max-width: 900px;
+  text-align: center;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-.testimonial_section_2::after {
-    content: '';
-    position: absolute;
-    width: 100px;
-    height: 150px;
-    border-top: 3px solid white;
-    border-left: 3px solid white;
-    top: 12px;
-    left: 0;
-}
-
-.testimonial_section_2::before {
-    content: '';
-    position: absolute;
-    width: 100px;
-    height: 150px;
-    border-bottom: 3px solid white;
-    border-right: 3px solid white;
-    top: 40px;
-    right: 0;
+.testimonial-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #f76d37;
+  margin-bottom: 20px;
 }
 
 .client_name_text {
-    font-size: 24px;
-    color: #f76d37;
-    text-transform: uppercase;
-    padding-left: 100px;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.quick_icon {
-    text-align: right;
-    padding-left: 30px;
-}
-
-.quick_icon img {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    object-fit: cover;
+  font-size: 22px;
+  font-weight: bold;
+  color: #f76d37;
+  margin-bottom: 15px;
+  text-transform: uppercase;
 }
 
 .customer_text {
-    font-size: 16px;
-    color: white;
-    line-height: 1.6;
-}
-
-.carousel-indicators li {
-    width: 55px;
-    height: 18px;
-    background-color: white;
-    border-radius: 20px;
-    margin: 0 3px;
-}
-
-.carousel-indicators .active {
-    background-color: #f76d37;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
 }
 
 /*--------------------------------------------------------------------- 

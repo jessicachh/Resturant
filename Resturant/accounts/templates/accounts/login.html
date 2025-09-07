@@ -17,18 +17,20 @@
  
 </head>
 <body>
-  <div class="login-wrapper">
-    <div class="login-left">
-      <h1 class="d-3 fw-bold text-dark ">Welcome To E-Shopper</h1>
-      <p class="text-dark ">Sign in to access and continue exploring our website.</p>
-      <img src="{% static 'images/download (13).png' %}" alt="Login Illustration" />
+  <section class="login-wrapper">
+    <div class="left-side">
+      <img src="{% static 'images/m.jpg' %}" alt="login Image" class="login-img">
+      <div class="overlay"></div>
     </div>
 
     <div class="login-right">
 
       <form class="form" method="post" action="{% url 'login' %}">
         {% csrf_token%}
-    <h3 class="text-center alert alert-info">Welcome to Login <a href="{%url 'index' %}"><i class="fa-solid fa-circle-xmark"></i></a></h3>
+        <div class="back-btn">
+      <a href="{%url 'index' %}"><i class="fa-solid fa-arrow-left"></i>Back</a>
+    </div>
+    <h3 class="text-center alert alert-info">Welcome to Login</h3>
         
         <div class="form-group">
           <label for="username">Username</label>
@@ -40,29 +42,29 @@
           <label for="password">Password</label>
           <input type="password" name="password" id="password" required placeholder="Enter your password">
         </div>
-        <div>
-          <input type="checkbox" name="remember_me">
-          <label for="">Remember Me</label>
-        </div>
+        <div class="rem-for">
+          <div>
+            <input type="checkbox" name="remember_me">
+            <label for="">Remember Me</label>
+          </div>
+            <a class="options" href="{% url 'password_reset' %}">Forgot password?</a>
 
-        <div class="options">
-          
-          <a href="{% url 'password_reset' %}">Forgot password?</a>
         </div>
 
         <button type="submit" class="btn-submit">Sign In</button>
 
-        <p class="divider">Or sign in with</p>
+        <p class="divider">Or</p>
 
         <div class="social-buttons">
-          <a href="{% url 'social:begin' 'google-oauth2' %}" class="social google">Google</a>
-          <a href="{% url 'social:begin' 'github' %}" class="social github">GitHub</a>
+          <a href="{% url 'social:begin' 'google-oauth2' %}" class="social google"><i class="fa-brands fa-google" style="padding-right: 5px;"></i> Sign in with Google</a>
+          <!-- <a href="{% url 'social:begin' 'github' %}" class="social github">GitHub</a> -->
         </div>
 
         <p class="signup-link">Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
       </form>
     </div>
-  </div>
+
+    </section>
    {% if messages %}
 
   {% for message in messages %}
@@ -90,6 +92,3 @@
 
 </body>
 </html>
-
-
-

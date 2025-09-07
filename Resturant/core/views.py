@@ -42,7 +42,7 @@ def index(request):
      
     return render(request,'core/index.html',context)
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def about(request):
     return render(request,'core/about.html')
 

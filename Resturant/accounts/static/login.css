@@ -1,64 +1,59 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #337bff, #43e9ff);
+  /* background: linear-gradient(135deg, #337bff, #43e9ff); */
 }
-
+.login-wrapper{
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
 .login-wrapper {
   display: flex;
   height: 100vh;
 }
-
-.login-left {
-  flex: 1;
-  background: linear-gradient(to top,#Fff,#2f9eff);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-  text-align: center;
+.left-side, .login-right {
+  flex: 1; /* each takes 50% */
+}
+.left-side {
+    flex: 3; /* 50% width */
+    position: relative;
+    overflow: hidden;
 }
 
-.login-left h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
+.login-img {
+  width: 900px;
+  height: 100%;
+  object-fit: cover;
+  object-position: left;
 }
-
-.login-left p {
-  font-size: 18px;
-  margin-bottom: 30px;
-}
-
-.login-left img {
-  max-width: 80%;
-  height: auto;
+.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 900px; height: 100%;
+    background-color: rgba(0,0,0,0.4);
 }
 
 .login-right {
-  flex: 1;
-  background: linear-gradient(to top,#Fff,#2f9eff);
   display: flex;
+  flex: 2;
   justify-content: center;
   align-items: center;
   padding: 60px;
+  background: #f76d37;
 }
 
 .form {
   width: 100%;
   height: 100%;
   max-width: 500px;
-  background: linear-gradient(to top,#Fff,#2f9eff);
   padding: 30px;
-  border-radius: 15px; 
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.form h2 {
-  margin-bottom: 25px;
-  color: #12372A;
-  font-weight: bold;
+.form h3 {
+    color: #ffffff;
+    background-color: #ffffff00;
+    border: none;
 }
 
 .form-group {
@@ -68,7 +63,7 @@ body {
 .form-group label {
   display: block;
   margin-bottom: 6px;
-  color: #333;
+  color: #ffffffc1;
   font-weight: 500;
 }
 
@@ -79,7 +74,31 @@ body {
   border-radius: 8px;
   font-size: 14px;
 }
+.back-btn{
+    height: 40px;
+    width: 120px;
+    background-color: rgba(255, 255, 255, 0.456);
+    justify-content: center;
+    align-items: center;
+    padding-left: 25px;
+    padding-top: 8px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+.back-btn a{
+    text-decoration: none;
+    color: #333;
+    justify-content: center;
+    text-align: center;
+    transition: background 0.3s;
+}
+.back-btn:hover{
+    background-color: white;
 
+}
+.back-btn a i{
+    padding-right: 8px;
+}
 .options {
   display: flex;
   justify-content: space-between;
@@ -92,27 +111,39 @@ body {
   color: #2d79f3;
   text-decoration: none;
 }
-
-.btn-submit {
-  width: 100%;
-  padding: 12px;
-  background-color: #12372A;
+.rem-for{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 600;
-  transition: background 0.3s ease;
+}
+
+.rem-for a{
+  color: white;
+  text-decoration: none;
+}
+.btn-submit {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
 }
 
 .btn-submit:hover {
-  background-color: #0f2d22;
+    background-color: #000000;
 }
 
 .divider {
   text-align: center;
   margin: 20px 0;
-  color: #888;
+  color: #ffffffb3;
 }
 
 .social-buttons {
@@ -131,7 +162,11 @@ body {
 }
 
 .social.google {
-  background-color: #9c0606;
+  background-color: #ffffff;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  color: black;
 }
 
 .social.github {
@@ -146,13 +181,20 @@ body {
   margin-top: 20px;
   text-align: center;
   font-size: 14px;
+  color: white;
 }
 
 .signup-link a {
-  color: #2d79f3;
+  color: #ffffff;
   font-weight: 500;
-  text-decoration: none;
+  text-decoration: underline;
 }
+
+.signup-link a:hover {
+    font-weight: bolder;
+}
+
+
 .back-button {
   display: inline-block;
   background-color: #2575fc;

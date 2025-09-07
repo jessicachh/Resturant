@@ -201,108 +201,92 @@
 <!-- gallery section end -->
 
 <!-- testimonial section start -->
+<!-- testimonial section start -->
 <div class="client_section layout_padding">
-   <div class="container">
-      <div class="row">
-         <div class="col-sm-12">
-            <h1 class="client_taital">TESTEMONIALS</h1>
-            <p class="client_text">
-               Here's what our customers have to say about us:
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h1 class="client_taital">TESTIMONIALS</h1>
+        <p class="client_text">Here's what our customers have to say about us:</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- Carousel inner -->
+    <div class="carousel-inner">
+
+      <!-- Testimonial 1 -->
+      <div class="carousel-item active">
+        <div class="container">
+          <div class="testimonial-card mx-auto">
+            <img src="{% static 'images/test1.jpg'%}"
+              alt="James Albert" class="testimonial-img">
+            <h4 class="client_name_text">James Albert</h4>
+            <p class="customer_text">
+              Just discovered this place and I'm obsessed! The atmosphere is so warm and inviting, perfect for a casual
+              lunch with friends. We tried a bunch of momos to share - veggie, chicken, and pork - and honestly,
+              couldn't pick a favorite. Each one was bursting with flavor and cooked to perfection. Definitely coming
+              back to work my way through the whole menu!
             </p>
-         </div>
+          </div>
+        </div>
       </div>
-   </div>
-   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-         <div class="carousel-item active">
-            <div class="client_section_2">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-md-12">
-                        <div class="testimonial_section_2">
-                           <h4 class="client_name_text">Sujan Thadarai
-                              <span class="quick_icon">
-                                 <img src="{% static 'images/sujan.png' %}">
-                              </span>
-                           </h4>
-                           <p class="customer_text">
-                              Just discovered this place and I'm obsessed!
-                              The atmosphere is so warm and inviting, perfect for a casual lunch with friends.
-                              We tried a bunch of momos to share - veggie, chicken, and pork - and honestly,
-                              couldn't pick a favorite. Each one was bursting with flavor and cooked to perfection.
-                              Definitely coming back to work my way through the whole menu!
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
 
-         <div class="carousel-item">
-            <div class="client_section_2">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-md-12">
-                        <div class="testimonial_section_2">
-                           <h4 class="client_name_text">Bikram
-                              <span class="quick_icon">
-                                 <img src="">
-                              </span>
-                           </h4>
-                           <p class="customer_text">Momos have always been a favorite comfort food, but yours are on
-                              another level!
-                              The fillings are so fresh and flavorful, and the dough is perfectly cooked - light and
-                              chewy at the same time.
-                              I can never decide which filling to try, so the variety is amazing.
-                              This place is now my go-to for a delicious and satisfying meal. Highly recommend!</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-
-         <div class="carousel-item">
-            <div class="client_section_2">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-md-12">
-                        <div class="testimonial_section_2">
-                           <h4 class="client_name_text">Prabesh
-                              <span class="quick_icon">
-                                 <img src="">
-                              </span>
-                           </h4>
-                           <p class="customer_text">
-                              We recently had a family gathering and decided to try your momo catering for the first
-                              time.
-                              It was a huge hit! Everyone loved the different fillings, especially the spicy ones (me!).
-                              The momos themselves were beautifully steamed and the dipping sauces were delicious.
-                              Delivery was on time and everything was perfectly presented.
-                              Huge thanks for making our event so easy and enjoyable!
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-
+      <!-- Testimonial 2 -->
+      <div class="carousel-item">
+        <div class="container">
+          <div class="testimonial-card mx-auto">
+            <img src="{% static 'images/test2.jpg'%}"
+              alt="Taylor Rock" class="testimonial-img">
+            <h4 class="client_name_text">Taylor Rock</h4>
+            <p class="customer_text">
+              Momos have always been a favorite comfort food, but yours are on another level! The fillings are so fresh
+              and flavorful, and the dough is perfectly cooked - light and chewy at the same time. I can never decide
+              which filling to try, so the variety is amazing. This place is now my go-to for a delicious and satisfying
+              meal. Highly recommend!
+            </p>
+          </div>
+        </div>
       </div>
-   </div>
+
+      <!-- Testimonial 3 -->
+      <div class="carousel-item">
+        <div class="container">
+          <div class="testimonial-card mx-auto">
+            <img src="{% static 'images/test3.jpg'%}"
+              alt="Katy Wilson" class="testimonial-img">
+            <h4 class="client_name_text">Katy Wilson</h4>
+            <p class="customer_text">
+              We recently had a family gathering and decided to try your momo catering for the first time. It was a huge
+              hit! Everyone loved the different fillings, especially the spicy ones (me!). The momos themselves were
+              beautifully steamed and the dipping sauces were delicious. Delivery was on time and everything was
+              perfectly presented. Huge thanks for making our event so easy and enjoyable!
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 </div>
 
 <!-- contact section start -->
 <div class="contact_section_2 layout_padding">
    <div class="container-fluid">
       <div class="row">
-         <div class="col-md-6 padding_0" data-aos="flip-up" data-aos-duration="3000">
+         <div class="col-md-6 padding_0" >
             <div class="form-container form-container-1">
                <form method="POST" action="{% url 'index' %}">
                   {% csrf_token %}
