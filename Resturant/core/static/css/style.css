@@ -158,6 +158,18 @@ Header/Navbar Styles
     font-size: 1.5rem;
     color: white;
 }
+#cart-btn{
+    font-size: 20px;
+    color: white;
+    padding-right:15px;
+}
+.nav-right{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
 
 /*--------------------------------------------------------------------- 
 Banner Section 
@@ -438,7 +450,7 @@ Menu/Gallery Section
 }
 
 .tab-titles-class h1 {
-    font-size: 36px;
+    font-size: 42px;
     font-weight: 700;
     margin-bottom: 15px;
     color: #333;
@@ -455,7 +467,7 @@ Menu/Gallery Section
 .tab-titles {
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
@@ -468,7 +480,6 @@ Menu/Gallery Section
     font-weight: 600;
     cursor: pointer;
     position: relative;
-    color: #333;
     border: none;
     background: none;
 }
@@ -477,19 +488,19 @@ Menu/Gallery Section
     content: '';
     width: 0;
     height: 3px;
-    background: #f76d37;
+    background: #ffffff;
     position: absolute;
     left: 0;
     bottom: -5px;
     transition: width 0.3s;
 }
-
+/* 
 .tab-links.active::after {
     width: 100%;
-}
+} */
 
 .tab-links.active {
-    color: #f76d37;
+    color: #282828;
 }
 
 .tab-content {
@@ -501,15 +512,16 @@ Menu/Gallery Section
 }
 
 .menu-item {
+    background-color: white;
+    border-radius: 2px solid #000000;
     margin-bottom: 30px;
-    text-align: center;
+    text-align: left;
 }
 
 .menu-item img {
     width: 100%;
     height: 250px;
     object-fit: cover;
-    border-radius: 10px;
     transition: transform 0.3s ease;
 }
 
@@ -518,11 +530,10 @@ Menu/Gallery Section
 }
 
 .menu-item span {
-    display: block;
     font-size: 20px;
     font-weight: 600;
-    margin-top: 15px;
     color: #333;
+    border: none;
 }
 
 .card-price {
@@ -531,7 +542,6 @@ Menu/Gallery Section
     font-weight: 700;
     margin-top: 5px;
 }
-
 /*--------------------------------------------------------------------- 
 Testimonial Section 
 ---------------------------------------------------------------------*/

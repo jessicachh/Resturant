@@ -156,22 +156,22 @@
 <div class="card text-center tab-titles-class" id="full">
    <h1>Top Items</h1>
    <h3 style="margin-bottom: 30px;">Here's our top items for today:</h3>
-   <div class="container">`
+   <div class="menu-container">
       <ul class="tab-titles text-center">
-         {% for i in category %}
-
-         <a href="?category={{i.id}}#full">
-            <li class="tab-links menu-title active">{{i.title}}</li>
-         </a>
-         {% endfor%}
-      </ul>
+  {% for i in category %}
+  <li class="tab-links menu-title {% if current_category == i.id %}active{% endif %}">
+    <a href="?category={{ i.id }}#full">{{ i.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
    </div>
-`
+
    <div class="tab-content active-tab">
       <div class="container">
          <div class="row">
             {% for i in momo %}
             <div class="col-md-4 menu-item">
+               <div class="menucard">
                <div class="row-md-4">
                   <p>
                      <img src="{{i.image.url}}">
@@ -179,18 +179,19 @@
 
 
                </div>
-               <div class="row-md-2">
+               <div class="row-md-1">
                   <span>{{i.name}}</span>
-                  <div class="card-price">रु{{i.price}}</div>
                </div>
+                  <div class="card-cart">
+                  <div class="card-price">Rs. {{i.price}}</div>
+                  <button class="add-to-cart-btn">
+                    <i class="fa-solid fa-cart-shopping" style="padding-right: 8px;"></i>Add to Cart
+                  </button>
                </div>
-
-               {% endfor %}
-
-              
-
             </div>
-
+</div>
+               {% endfor %}
+            </div>
       </div>
    </div>
 </div>
@@ -335,6 +336,27 @@
 <script>
    alertify.set('notifier', 'position', 'top-right');
    alertify.success('{{message}}')
+
+   document.addEventListener("DOMContentLoaded", () => {
+  const tabs = document.querySelectorAll(".tab-links a");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", (e) => {
+      e.preventDefault(); // prevent full page reload
+
+      // remove active from all
+      document.querySelectorAll(".tab-links").forEach(li => li.classList.remove("active"));
+
+      // add active to the clicked one
+      e.target.closest(".tab-links").classList.add("active");
+
+      // update the URL (optional)
+      history.pushState(null, "", tab.href);
+
+      // TODO: fetch category data with AJAX/fetch and update DOM
+    });
+  });
+});
 </script>
 
 

@@ -112,10 +112,13 @@
                <a href="#"><i class="fa-brands fa-instagram"></i></a>
                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
             </div> -->
+            <div class="nav-right">
+            <a href="{% url 'contact' %}"><button class="custom-btn btn-1" style="height: 45px; ">Contact</button></a>
 
             <div class="d=flex gap-3 px-3">
                {% if request.user.is_authenticated %}
               <div class="dropdown">
+             <a href="{% url 'cart' %}"><i class="fa-solid fa-cart-shopping" id="cart-btn"></i></a>
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     {% if request.user.profile.profile_picture %}
     <img src="{{request.user.profile.profile_picture.url }}" style="height: 50px; width: 50px; border-radius: 50%; border: 3px solid blue;" alt="">
@@ -135,9 +138,9 @@
              <a href="{% url 'register' %}"><button class="auth_btn">Register</button></a>
                {% endif %}
             </div>
+            </div>
 
 
-            <a href="{% url 'contact' %}"><button class="custom-btn btn-1" style="height: 45px; ">Contact</button></a>
 
             <!-- <form class="d-flex" role="search">
                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

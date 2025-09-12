@@ -51,7 +51,45 @@ def contact(request):
 
 @login_required(login_url='login')
 def menu(request):
-    return render(request,'core/menu.html')
+    category = Category.objects.all()             # get all categories
+    cateid = request.GET.get('category')          # get selected category from URL
+
+    if cateid:
+        momo = Momo.objects.filter(category=cateid)  # filter momos by category
+        selected_category = int(cateid)
+    else:
+        momo = Momo.objects.all()                    # show all momos if no category
+        selected_category = None
+
+    context = {
+        'category': category,
+        'momo': momo,
+        'selected_category': selected_category,
+    }
+    return render(request, 'core/menu.html', context)
+
 
 def services(request):
     return render(request,'core/services.html')
+
+def cart(request):
+    return render(request,'core/cart.html')
+
+def index(request):
+    category = Category.objects.all()
+    cateid = request.GET.get('category')
+
+    if cateid:
+        momo = Momo.objects.filter(category=cateid)
+        current_category = int(cateid)  # use the same name as template
+    else:
+        momo = Momo.objects.all()
+        current_category = None
+
+    context = {
+        'date': datetime.now(),
+        'category': category,
+        'momo': momo,
+        'current_category': current_category,  # 🔑 match template
+    }
+    return render(request, 'core/index.html', context)
