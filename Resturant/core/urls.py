@@ -1,4 +1,5 @@
 from django.urls import path
+from . import views
 from .views import about, index, contact, menu, services, cart, add_to_cart, increase_quantity, decrease_quantity, remove_from_cart
 urlpatterns=[
     path("",index, name="index"),
@@ -13,6 +14,7 @@ urlpatterns=[
     path("cart/increase/<int:item_id>/", increase_quantity, name="increase_quantity"),
     path("cart/decrease/<int:item_id>/", decrease_quantity, name="decrease_quantity"),
     path("cart/remove/<int:item_id>/", remove_from_cart, name="remove_from_cart"),
+    path("place-order/", views.place_order, name="place_order"),
 
 
 ]

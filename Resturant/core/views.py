@@ -146,3 +146,20 @@ def cart(request):
         'shipping': shipping,
         'total': total
     })
+    
+    # Checkout modal
+@login_required
+def place_order(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        phone = request.POST.get("phone")
+        address = request.POST.get("address")
+        payment_method = request.POST.get("payment_method")
+
+        # TODO: Save order in DB
+        print(name, phone, address, payment_method)
+
+        # Redirect to cart with query param
+        return redirect('/cart/?order=success')
+
+    return redirect("cart")

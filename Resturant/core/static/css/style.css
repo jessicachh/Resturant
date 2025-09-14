@@ -680,7 +680,7 @@ Footer Section
 .footer_section {
     width: 100%;
     float: left;
-    background: linear-gradient(to bottom,#8e3816,#4d2212,#252525) !important;    
+    background: #111111 !important;    
     height: auto;
     padding: 95px 0px;
 }

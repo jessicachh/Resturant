@@ -99,7 +99,7 @@ html{
   margin: 30px;
   background-color: #252525;
   padding: 30px;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+  /* clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%); */
 }
 
 .form-container-1{
@@ -148,13 +148,18 @@ html{
 }
 
 .form-container .form .button-container .send-button {
-  flex-basis: 70%;
+  flex-basis: 100%;
   padding: 10px;
   color: #f76d37;
   text-align: center;
   font-weight: bold;
   background-color: transparent;
   border: 3px solid #f76d37;
+}
+
+.form-container .form .button-container .send-button:hover {
+  background: #f76d37;
+  color: white;
 }
 
 .form-container .form .button-container .send-button:hover {
@@ -175,7 +180,7 @@ html{
   color: #ff7a01;
   font-weight: bold;
   background: #001925;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+  /* clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%); */
   transition: all 0.2s ease-in-out;
 }
 
@@ -402,7 +407,7 @@ html{
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       padding: 20px;
     }
-    .checkout-btn button{
+    .checkout-btn {
       background-color: #f76d37;
       color: white;
       border: none;
@@ -412,12 +417,127 @@ html{
       padding-right: 15px;
       border-radius: 10px;
     }
-    .checkout-btn button:hover{
+    .checkout-btn :hover{
       background-color: #000000;
     }
     .cart-badge {
     transform: translate(-20px, -50%);
 }
 
+.map-responsive{
+  padding-right: 95px;
+  margin-top: 20px;
+}
+.map-responsive h1{
+  margin-bottom: -5px;
+}
+.map-responsive iframe {
+  border: 3px solid #f76d37;
+  width: 100%;
+  height: 650px !important;
+}
 
+/* Checkout pop up css */
 
+.modal-header .modal-title {
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 24px;
+  color: #f76d37;
+}
+.btn-close {
+  width: 1.5rem;
+  height: 1.5rem;
+  filter: invert(30%) sepia(90%) saturate(200%) hue-rotate(340deg);
+  margin-right: 15px;
+}
+.btn-close:hover {
+  filter: invert(19%) sepia(91%) saturate(7473%) hue-rotate(357deg) brightness(95%) contrast(90%);
+  transform: scale(1.2);
+  transition: all 0.2s ease;
+}
+.modal-body {
+  padding: 0 25px;
+  padding-bottom: 25px;
+}
+
+.modal-body .form-label {
+  display: block;
+  text-align: left;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.modal-body .form-control {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-shadow: none;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.payment-options {
+  display: flex;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.payment-option {
+  flex: 1;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.payment-option i {
+  font-size: 24px;
+}
+
+.payment-input:checked + .payment-option {
+  border: 2px solid orange;
+  background-color: rgba(255, 166, 0, 0.153);
+}
+.payment-option.disabled-option[data-bs-toggle="tooltip"] {
+  pointer-events: auto; 
+  cursor: not-allowed;
+}
+.tooltip-inner {
+  background-color: #333;
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.tooltip.bs-tooltip-top .tooltip-arrow::before {
+  border-top-color: #333;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.modal-footer .btn-primary {
+  background-color: #f76d37;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: #000000;
+}
+
+#orderToast .btn-close {
+    filter: invert(1); /* turns it white */
+}

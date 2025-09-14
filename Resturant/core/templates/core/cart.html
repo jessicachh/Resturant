@@ -58,12 +58,104 @@
           <span>Total</span>
           <span>Rs. {{ total }}</span>
         </div>
-        <a href="" class="checkout-btn">
-            <button>Proceed to Checkout</button></a>
+       <button type="button" class="checkout-btn" data-bs-toggle="modal" data-bs-target="#checkoutModal">
+              Proceed to Checkout
+            </button>  
       </div>
     </div>
   </div>
 </div>
 
+<!-- Checkout Modal -->
+<div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="checkoutModalLabel">Checkout Information</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <form action="{% url 'place_order' %}" method="post">
+        {% csrf_token %}
+        <div class="modal-body">
+          <!-- Name -->
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" name="name" value="{{ request.user.get_full_name }}" readonly>
+          </div>
+
+          <!-- Phone -->
+          <div class="mb-3">
+            <label class="form-label">Phone Number</label>
+            <input type="text" class="form-control" name="phone" required>
+          </div>
+
+          <!-- Address -->
+          <div class="mb-3">
+            <label class="form-label">Delivery Address</label>
+            <textarea class="form-control" name="address" rows="2" required></textarea>
+          </div>
+
+          <!-- Payment Method -->
+          <div class="mb-3">
+            <label class="form-label">Payment Method</label>
+            <div class="payment-options">
+              <input type="radio" name="payment_method" id="cod" value="COD" class="payment-input" hidden>
+              <label for="cod" class="payment-option">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <span>Cash on Delivery</span>
+              </label>
+
+              <!-- Fonepay (Disabled) -->
+              <input type="radio" name="payment_method" id="fonepay" value="Fonepay" class="payment-input" hidden disabled>
+              <label for="fonepay" class="payment-option disabled-option" 
+                     data-bs-toggle="tooltip" 
+                     data-bs-placement="top" 
+                     title="Currently not available. Please use COD!">
+                <i class="fa-brands fa-google-wallet"></i>
+                <span>Fonepay</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal" style="width: 150px;">Cancel</button>
+          <button type="submit" class="btn btn-primary">Confirm Order</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<!-- Toast Container -->
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 1100;">
+  <div id="orderToast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        ✅ Order received! You will get a call shortly.
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Check if URL has ?order=success
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('order') === 'success') {
+    const toastEl = document.getElementById('orderToast');
+    const toast = new bootstrap.Toast(toastEl, { delay: 5000 }); 
+    toast.show();
+  }
+});
+</script>
 
  {% endblock content %}
