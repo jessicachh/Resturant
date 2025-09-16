@@ -4,6 +4,8 @@
 {% block content %}
 
 
+
+
 <!-- banner section start -->
 <div class="banner_section layout_padding">
    <div class="container">
@@ -339,7 +341,9 @@
 {% if messages %}
 {% for message in messages %}
 <script>
-   
+   // alertify.set('notifier', 'position', 'top-right');
+   // alertify.success('{{message}}')
+
    document.addEventListener("DOMContentLoaded", () => {
   const tabs = document.querySelectorAll(".tab-links a");
 

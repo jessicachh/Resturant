@@ -63,7 +63,7 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware'
 ]
 
-OGIN_URL="login" 
+LOGIN_URL="login" 
 LOGIN_REDIRECT_URL ="index" 
 LOGOUT_URL="logout" 
 LOGOUT_REDIRECT_URL ="login" 
@@ -161,6 +161,8 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'jsscraut@gmail.com'
 EMAIL_HOST_PASSWORD = 'deyh nobt djac luyk'
+
+
 
 # django admin pannel
 JAZZMIN_SETTINGS = {

@@ -21,9 +21,9 @@
       <div class="menu-container text-center" style="margin-bottom:20px;">
          <ul class="tab-titles">
             {% for i in category %}
-            <a href="?category={{i.id}}#menu">
+            <a href="?category={{ i.id }}#menu">
                <li class="tab-links menu-title {% if selected_category == i.id %}active{% endif %}">
-                  {{i.title}}
+                  {{ i.title }}
                </li>
             </a>
             {% endfor %}
@@ -31,35 +31,34 @@
       </div>
 
       <!-- Dynamic Momo Items -->
-     <div class="container">
+      <div class="container">
          <div class="row">
             {% for i in momo %}
-            <div class="col-md-4 menu-item">
+            <div class="col-md-4 menu-item" id="item-{{ i.id }}">
                <div class="menucard">
-               <div class="row-md-4">
-                  <p>
-                     <img src="{{i.image.url}}">
-                  </p>
-
-
-               </div>
-               <div class="row-md-1">
-                  <span>{{i.name}}</span>
-               </div>
+                  <div class="row-md-4">
+                     <p>
+                        <img src="{{ i.image.url }}" alt="{{ i.name }}">
+                     </p>
+                  </div>
+                  <div class="row-md-1">
+                     <span>{{ i.name }}</span>
+                  </div>
                   <div class="card-cart">
-                  <div class="card-price">Rs. {{i.price}}</div>
-                 <form action="{% url 'add_to_cart' i.id %}" method="post" style="display:inline;">
-  {% csrf_token %}
-  <button type="submit" class="add-to-cart-btn" style="height: 40px;">
-    <i class="fa-solid fa-cart-shopping" style="padding-right: 8px;"></i> Add to Cart
-  </button>
-</form>
-
+                     <div class="card-price">Rs. {{ i.price }}</div>
+                     <form action="{% url 'add_to_cart' i.id %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <!-- Add anchor to stay on this item after reload -->
+                        <input type="hidden" name="next" value="{{ request.get_full_path }}#item-{{ i.id }}">
+                        <button type="submit" class="add-to-cart-btn" style="height:40px;">
+                           <i class="fa-solid fa-cart-shopping" style="padding-right: 8px;"></i> Add to Cart
+                        </button>
+                     </form>
+                  </div>
                </div>
             </div>
-</div>
-               {% endfor %}
-            </div>
+            {% endfor %}
+         </div>
       </div>
    </div>
 </div>

@@ -55,24 +55,25 @@
             <div class="row">
                <div class="col-md-6 padding_0">
                   <div class="form-container form-container-1">
-                     <form method="#" action="#">
-                        <h1 style="color: white; font-size: 50px; border-bottom: 3px solid #f76d37;"
-                           class="text-center"><b>GET IN TOUCH</b></h1>
+                    <form method="POST" action="{% url 'index' %}">
+    {% csrf_token %}
+    <h1 style="color: white; font-size: 50px; border-bottom: 3px solid #f76d37;"
+       class="text-center"><b>GET IN TOUCH</b></h1>
 
-                        <div class="form-container">
-                           <div class="form">
-                              <input required="" placeholder="Name" type="text" class="input" name="name">
-                              <input required="" placeholder="Email" type="email" class="input" name="email">
-                              <input required="" placeholder="Phone Number" type="tel" class="input" name="phone">
-                              <textarea required="" placeholder="Say Hello" rows="10" cols="30" id="message"
-                                 name="message" class="textarea"></textarea>
-                              <div class="button-container">
-                                 <input type="submit" value="send" class="send-button">
+    <div class="form-container">
+       <div class="form">
+          <input required placeholder="Name" type="text" class="input" name="name">
+          <input required placeholder="Email" type="email" class="input" name="email">
+          <input required placeholder="Phone Number" type="tel" class="input" name="phone">
+          <textarea required placeholder="Say Hello" rows="10" cols="30" id="message"
+             name="message" class="textarea"></textarea>
+          <div class="button-container">
+             <input type="submit" value="SEND" class="send-button">
+          </div>
+       </div>
+    </div>
+</form>
 
-                              </div>
-                           </div>
-                        </div>
-                     </form>
                   </div>
 
                </div>
